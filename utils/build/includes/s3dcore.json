@@ -49,8 +49,6 @@
 	"src/objects/Line.js",
 	"src/objects/Mesh.js",
 	"src/scenes/Scene.js",
-	"src/renderers/shaders/ShaderChunk.js",
-	"src/renderers/shaders/ShaderChunk/default_vertex.glsl",
 	"src/renderers/shaders/UniformsUtils.js",
 	"src/renderers/shaders/UniformsLib.js",
 	"src/renderers/WebGLRenderer.js",
