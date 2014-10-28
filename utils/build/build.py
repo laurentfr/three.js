@@ -45,7 +45,7 @@ def main(argv=None):
 	fd, path = tempfile.mkstemp()
 	tmp = open(path, 'w', encoding='utf-8')
 	sources = []
-		
+
 	if args.amd:
 		tmp.write('( function ( root, factory ) {\n\n\tif ( typeof define === \'function\' && define.amd ) {\n\n\t\tdefine( [ \'exports\' ], factory );\n\n\t} else if ( typeof exports === \'object\' ) {\n\n\t\tfactory( exports );\n\n\t} else {\n\n\t\tfactory( root );\n\n\t}\n\n}( this, function ( exports ) {\n\n')
 
@@ -68,6 +68,8 @@ def main(argv=None):
 
 	if args.amd:
 		tmp.write('exports.THREE = THREE;\n\n} ) );')
+
+	
 
 	tmp.close()
 
@@ -99,6 +101,19 @@ def main(argv=None):
 
 	os.close(fd)
 	os.remove(path)
+
+	temp2 = open(output, 'r')   
+	text_content = temp2.read()
+	temp2.close()
+
+	tmp3 = open(output, 'w', encoding='utf-8')
+	tmp3.write(u'angular.module(\'spread3d\').factory(\'THREE\',function(){\n')
+	tmp3.write(text_content) 
+	tmp3.write(u'\n    return THREE;\n});\n') 
+	tmp3.close()
+
+	
+
 
 
 if __name__ == "__main__":

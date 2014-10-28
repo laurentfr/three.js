@@ -1,3 +1,4 @@
+angular.module('spread3d').factory('THREE',function(){
 // File:src/Three.js
 
 /**
@@ -17676,7 +17677,7 @@ THREE.ShaderLib = {
 
 THREE.WebGLRenderer = function ( parameters ) {
 
-	console.log( 'THREE.WebGLRenderer', THREE.REVISION );
+	//console.log( 'THREE.WebGLRenderer', THREE.REVISION );
 
 	parameters = parameters || {};
 
@@ -27290,10 +27291,10 @@ THREE.Curve.Utils = {
 
 		// To check if my formulas are correct
 
-		var h00 = 6 * t * t - 6 * t; 	// derived from 2t^3 − 3t^2 + 1
-		var h10 = 3 * t * t - 4 * t + 1; // t^3 − 2t^2 + t
-		var h01 = - 6 * t * t + 6 * t; 	// − 2t3 + 3t2
-		var h11 = 3 * t * t - 2 * t;	// t3 − t2
+		var h00 = 6 * t * t - 6 * t; 	// derived from 2t^3 âˆ’ 3t^2 + 1
+		var h10 = 3 * t * t - 4 * t + 1; // t^3 âˆ’ 2t^2 + t
+		var h01 = - 6 * t * t + 6 * t; 	// âˆ’ 2t3 + 3t2
+		var h11 = 3 * t * t - 2 * t;	// t3 âˆ’ t2
 
 		return h00 + h10 + h01 + h11;
 
@@ -32745,21 +32746,21 @@ THREE.DodecahedronGeometry = function ( radius, detail ) {
 
 	var vertices = [
 
-		// (±1, ±1, ±1)
+		// (Â±1, Â±1, Â±1)
 		-1, -1, -1,    -1, -1,  1,
 		-1,  1, -1,    -1,  1,  1,
 		 1, -1, -1,     1, -1,  1,
 		 1,  1, -1,     1,  1,  1,
 
-		// (0, ±1/φ, ±φ)
+		// (0, Â±1/Ï†, Â±Ï†)
 		 0, -r, -t,     0, -r,  t,
 		 0,  r, -t,     0,  r,  t,
 
-		// (±1/φ, ±φ, 0)
+		// (Â±1/Ï†, Â±Ï†, 0)
 		-r, -t,  0,    -r,  t,  0,
 		 r, -t,  0,     r,  t,  0,
 
-		// (±φ, 0, ±1/φ)
+		// (Â±Ï†, 0, Â±1/Ï†)
 		-t,  0, -r,     t,  0, -r,
 		-t,  0,  r,     t,  0,  r
 	];
@@ -34728,3 +34729,6 @@ THREE.MorphBlendMesh.prototype.update = function ( delta ) {
 
 };
 
+
+    return THREE;
+});
